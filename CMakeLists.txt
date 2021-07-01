@@ -16,7 +16,10 @@ set(ADEPT_HEADERS
         include/adept/Expression.h
         include/adept/ExpressionSize.h
         include/adept/FixedArray.h
+        include/adept/GradientIndex.h
         include/adept/IndexedArray.h
+        include/adept/Minimizer.h
+        include/adept/Optimizable.h
         include/adept/Packet.h
         include/adept/RangeIndex.h
         include/adept/ScratchVector.h
@@ -39,6 +42,7 @@ set(ADEPT_HEADERS
         include/adept/matmul.h
         include/adept/noalias.h
         include/adept/outer_product.h
+        include/adept/quick_e.h
         include/adept/reduce.h
         include/adept/scalar_shortcuts.h
         include/adept/settings.h
@@ -52,13 +56,19 @@ set(ADEPT_HEADERS
 
 set(ADEPT_SOURCES
         adept/Array.cpp
+        adept/Minimizer.cpp
         adept/Stack.cpp
         adept/StackStorageOrig.cpp
         adept/Storage.cpp
         adept/cppblas.cpp
+        adept/cpplapack.h
         adept/index.cpp
         adept/inv.cpp
         adept/jacobian.cpp
+        adept/line_search.cpp
+        adept/minimize_conjugate_gradient.cpp
+        adept/minimize_levenberg_marquardt.cpp
+        adept/minimize_limited_memory_bfgs.cpp
         adept/settings.cpp
         adept/solve.cpp
         adept/vector_utilities.cpp
@@ -78,7 +88,7 @@ install(TARGETS adept
         )
 
 install(FILES ${ADEPT_HEADERS} DESTINATION include/adept)
-install(FILES include/adept.h include/adept_arrays.h DESTINATION include)
+install(FILES include/adept.h include/adept_arrays.h include/adept_optimize.h include/adept_source.h DESTINATION include)
 
 install(FILES Adept2Config.cmake DESTINATION cmake)
 
