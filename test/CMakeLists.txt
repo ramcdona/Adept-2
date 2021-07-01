@@ -1,6 +1,4 @@
 function(add_adept_test TESTNAME)
-    set(TEST_SOURCES
-            algorithm.cpp)
     set(TEST_HEADERS
             algorithm.h
             algorithm_with_and_without_ad.h)
@@ -8,7 +6,7 @@ function(add_adept_test TESTNAME)
     foreach(arg IN LISTS ARGN)
         set(TEST_ADDITIONAL ${TEST_ADDITIONAL} ${arg})
     endforeach()
-    add_executable(${TESTNAME} ${TESTNAME}.cpp ${TEST_SOURCES} ${TEST_HEADERS} ${TEST_ADDITIONAL})
+    add_executable(${TESTNAME} ${TESTNAME}.cpp ${TEST_HEADERS} ${TEST_ADDITIONAL})
     target_link_libraries(${TESTNAME}
             PRIVATE
             adept::adept)
@@ -16,8 +14,8 @@ function(add_adept_test TESTNAME)
     add_test(NAME ${TESTNAME} COMMAND ./${TESTNAME})
 endfunction()
 
-add_adept_test(test_adept)
-#add_adept_test(test_adept_with_and_without_ad)
+add_adept_test(test_adept algorithm.cpp)
+# add_adept_test(test_adept_with_and_without_ad algorithm.cpp)
 add_adept_test(test_array_derivatives)
 add_adept_test(test_array_speed)
 add_adept_test(test_arrays)
@@ -26,8 +24,8 @@ add_adept_test(test_constructors)
 add_adept_test(test_derivatives)
 add_adept_test(test_fixed_arrays)
 #add_adept_test(test_gsl_interface)
-add_adept_test(test_misc)
-#add_adept_test(test_no_lib)
+add_adept_test(test_misc algorithm.cpp)
+#add_adept_test(test_no_lib algorithm.cpp)
 add_adept_test(test_radiances simulate_radiances.cpp)
 add_adept_test(test_radiances_array simulate_radiances.cpp)
 add_adept_test(test_thread_safe)
