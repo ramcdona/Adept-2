@@ -74,10 +74,12 @@ set(ADEPT_SOURCES
         adept/vector_utilities.cpp
         )
 
+set(ADEPT_INCLUDE_DIR $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
+
 add_library(adept STATIC ${ADEPT_SOURCES} ${ADEPT_HEADERS})
 add_library(adept::adept ALIAS adept)
 target_include_directories(adept PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        ${ADEPT_INCLUDE_DIR}
         $<INSTALL_INTERFACE:include>
         )
 
