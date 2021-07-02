@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 project(Adept2)
 
+SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
 set(CMAKE_CXX_STANDARD 14)
 
 include(CTest)
@@ -38,6 +40,20 @@ find_package(GSL)
 # GSL_INCLUDE_DIRS
 # GSL_LIBRARIES
 # GSL_VERSION
+
+# From https://github.com/joaoleal/CppADCodeGen/
+find_package(ADOLC)
+# ADOLC_FOUND
+# ADOLC_INCLUDE_DIRS
+# ADOLC_LIBRARY_DIRS
+# ADOLC_LIBRARIES
+
+# From https://github.com/joaoleal/CppADCodeGen/
+find_package(CppAD)
+# CPPAD_FOUND
+# CPPAD_INCLUDE_DIRS
+# CPPAD_LIBRARY_DIRS
+# CPPAD_LIBRARIES
 
 set(ADEPT_HEADERS
         include/adept/Active.h
