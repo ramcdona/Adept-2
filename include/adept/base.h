@@ -250,14 +250,17 @@
     // ADEPT_THREAD_LOCAL, but then check for its existance using
     // Clang features
     #define ADEPT_STACK_THREAD_UNSAFE 1
-    #define ADEPT_THREAD_LOCAL
     #ifdef __has_feature
       #if __has_feature(cxx_thread_local)
         // Clang feature check has found that thread_local is
         // available
         #define ADEPT_THREAD_LOCAL thread_local
         #undef  ADEPT_STACK_THREAD_UNSAFE
+      #else
+        #define ADEPT_THREAD_LOCAL
       #endif
+    #else
+      #define ADEPT_THREAD_LOCAL
     #endif
   #elif defined(ADEPT_CXX11_FEATURES)
     // C++11 has thread_local as part of the language, and should be
