@@ -55,6 +55,9 @@ find_package(CppAD)
 # CPPAD_LIBRARY_DIRS
 # CPPAD_LIBRARIES
 
+# Does net yet exist.
+# find_package(SACADO)
+
 set(ADEPT_HEADERS
         include/adept/Active.h
         include/adept/ActiveConstReference.h
