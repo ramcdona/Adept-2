@@ -10,7 +10,6 @@ function(add_adept_test2 TESTNAME TESTSOURCE)
     target_link_libraries(${TESTNAME}
             PRIVATE
             adept::adept)
-    enable_testing()
     add_test(NAME ${TESTNAME} COMMAND ./${TESTNAME})
 endfunction()
 
