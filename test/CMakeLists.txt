@@ -26,7 +26,13 @@ add_adept_test(test_checkpoint)
 add_adept_test(test_constructors)
 add_adept_test(test_derivatives)
 add_adept_test(test_fixed_arrays)
-#add_adept_test(test_gsl_interface)
+
+if(GSL_FOUND)
+    add_adept_test(test_gsl_interface state.cpp rosenbrock_banana_function.cpp)
+    target_include_directories(test_gsl_interface PRIVATE ${GSL_INCLUDE_DIRS})
+    target_link_libraries(test_gsl_interface PRIVATE ${GSL_LIBRARIES})
+endif()
+
 add_adept_test(test_misc algorithm.cpp)
 
 add_executable(test_no_lib test_no_lib.cpp algorithm.cpp )
