@@ -136,6 +136,8 @@ target_include_directories(adept PUBLIC
         $<INSTALL_INTERFACE:include>
         )
 
+add_subdirectory(include)
+
 install(TARGETS adept
         EXPORT adept
         LIBRARY DESTINATION lib
@@ -143,7 +145,7 @@ install(TARGETS adept
         )
 
 install(FILES ${ADEPT_HEADERS} DESTINATION include/adept)
-install(FILES include/adept.h include/adept_arrays.h include/adept_optimize.h include/adept_source.h DESTINATION include)
+install(FILES include/adept.h include/adept_arrays.h include/adept_optimize.h ${CMAKE_CURRENT_BINARY_DIR}/include/adept_source.h DESTINATION include)
 
 install(FILES Adept2Config.cmake DESTINATION cmake)
 
