@@ -29,7 +29,11 @@ add_adept_test(test_derivatives)
 add_adept_test(test_fixed_arrays)
 #add_adept_test(test_gsl_interface)
 add_adept_test(test_misc algorithm.cpp)
-#add_adept_test(test_no_lib algorithm.cpp)
+
+add_executable(test_no_lib test_no_lib.cpp algorithm.cpp )
+target_include_directories(test_no_lib PRIVATE ${ADEPT_INCLUDE_DIR})
+add_test(NAME test_no_lib COMMAND ./test_no_lib)
+
 add_adept_test(test_radiances simulate_radiances.cpp)
 add_adept_test(test_radiances_array simulate_radiances.cpp)
 add_adept_test(test_thread_safe)
