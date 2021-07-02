@@ -5,6 +5,40 @@ set(CMAKE_CXX_STANDARD 14)
 
 include(CTest)
 
+find_package(OpenMP)
+MESSAGE( STATUS "OpenMP_FOUND " ${OpenMP_FOUND})
+# OpenMP_FOUND
+# OpenMP_VERSION
+# <lang> is one of C, CXX, or Fortran
+# OpenMP_<lang>_FOUND
+# OpenMP_<lang>_FLAGS
+# OpenMP_<lang>_INCLUDE_DIRS
+# OpenMP_<lang>_LIB_NAMES
+# OpenMP_<libname>_LIBRARY
+# OpenMP_<lang>_LIBRARIES
+
+find_package(LAPACK)
+MESSAGE( STATUS "LAPACK_FOUND " ${LAPACK_FOUND})
+# LAPACK_FOUND
+# LAPACK_LINKER_FLAGS
+# LAPACK_LIBRARIES
+# LAPACK95_LIBRARIES
+# LAPACK95_FOUND
+
+find_package(BLAS)
+MESSAGE( STATUS "BLAS_FOUND " ${BLAS_FOUND})
+# BLAS_FOUND
+# BLAS_LINKER_FLAGS
+# BLAS_LIBRARIES
+# BLAS95_LIBRARIES
+# BLAS95_FOUND
+
+find_package(GSL)
+# GSL_FOUND
+# GSL_INCLUDE_DIRS
+# GSL_LIBRARIES
+# GSL_VERSION
+
 set(ADEPT_HEADERS
         include/adept/Active.h
         include/adept/ActiveConstReference.h
