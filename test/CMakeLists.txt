@@ -36,7 +36,7 @@ endif()
 add_adept_test(test_misc algorithm.cpp)
 
 add_executable(test_no_lib test_no_lib.cpp algorithm.cpp )
-target_include_directories(test_no_lib PRIVATE ${ADEPT_INCLUDE_DIR} ${PROJECT_BINARY_DIR}/include)
+target_include_directories(test_no_lib PRIVATE ${PROJECT_SOURCE_DIR}/include ${PROJECT_BINARY_DIR}/include)
 add_test(NAME test_no_lib COMMAND ./test_no_lib)
 
 add_adept_test(test_radiances simulate_radiances.cpp)
