@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 include(CTest)
 
+if( ADEPT_USE_OPENMP )
 find_package(OpenMP)
 MESSAGE( STATUS "OpenMP_FOUND " ${OpenMP_FOUND})
 # OpenMP_FOUND
@@ -18,7 +19,9 @@ MESSAGE( STATUS "OpenMP_FOUND " ${OpenMP_FOUND})
 # OpenMP_<lang>_LIB_NAMES
 # OpenMP_<libname>_LIBRARY
 # OpenMP_<lang>_LIBRARIES
+endif()
 
+if( ADEPT_USE_LAPACK )
 find_package(LAPACK)
 MESSAGE( STATUS "LAPACK_FOUND " ${LAPACK_FOUND})
 # LAPACK_FOUND
@@ -26,7 +29,9 @@ MESSAGE( STATUS "LAPACK_FOUND " ${LAPACK_FOUND})
 # LAPACK_LIBRARIES
 # LAPACK95_LIBRARIES
 # LAPACK95_FOUND
+endif()
 
+if( ADEPT_USE_BLAS )
 find_package(BLAS)
 MESSAGE( STATUS "BLAS_FOUND " ${BLAS_FOUND})
 # BLAS_FOUND
@@ -34,12 +39,15 @@ MESSAGE( STATUS "BLAS_FOUND " ${BLAS_FOUND})
 # BLAS_LIBRARIES
 # BLAS95_LIBRARIES
 # BLAS95_FOUND
+endif()
 
+if( ADEPT_USE_GSL )
 find_package(GSL)
 # GSL_FOUND
 # GSL_INCLUDE_DIRS
 # GSL_LIBRARIES
 # GSL_VERSION
+endif()
 
 # From https://github.com/joaoleal/CppADCodeGen/
 find_package(ADOLC)
