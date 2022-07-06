@@ -20,7 +20,7 @@
     aVector x = x_save;					\
     stack.new_recording();					\
     aVector y = FUNC(x);					\
-    Vector dy_dx_num  = (FUNC(x_save+dx)-FUNC(x_save)) / dx;	\
+    Vector dy_dx_num  = (FUNC(x_save+dx) - FUNC(x_save)) / dx;	\
     Vector dy_dx_adept(N);					\
     for (int i = 0; i < N; ++i) {				\
       x[i].set_gradient(1.0);					\
@@ -56,9 +56,9 @@
     stack.new_recording();					\
     aVector z = FUNC(x,y);					\
     Vector dz_dx_num						\
-      = (FUNC(x_save+dx,y_save)-FUNC(x_save,y_save)) / dx; \
+      = (FUNC(x_save+dx,y_save) - FUNC(x_save,y_save)) / dx; \
     Vector dz_dy_num						\
-      = (FUNC(x_save,y_save+dy)-FUNC(x_save,y_save)) / dy;	\
+      = (FUNC(x_save,y_save+dy) - FUNC(x_save,y_save)) / dy;	\
     Vector dz_dx_adept(N);					\
     Vector dz_dy_adept(N);					\
     for (int i = 0; i < N; ++i) {				\
