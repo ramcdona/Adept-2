@@ -160,5 +160,6 @@ install(EXPORT adept
         DESTINATION cmake)
 
 if(BUILD_TESTING)
+    enable_testing()
     add_subdirectory(test)
 endif(BUILD_TESTING)
